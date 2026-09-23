@@ -77,6 +77,14 @@ select e.EmpNo, e.EmpName, d.DeptName, d.Loc from Emp e, Dept d where e.DeptNo =
 
 select e.EmpNo, e.EmpName, e.Sal, s.grade from Emp e, Salgrade s where e.sal between s.LowSal and s.HighSal;
 
+select e.EmpNo, e.EmpName, d.DeptName from Emp e inner join Dept d on d.DeptNo = e.DeptNo;
+
 select e.EmpName as Employee_Name, m.EmpName as Manager_Name from Emp e left join Emp m on e.Mgr = m.EmpNo;
 
+select e.EmpName as Employee_Name, m.EmpName as Manager_Name from Emp e right join Emp m on e.Mgr = m.EmpNo;
+
 select e.EmpNo, e.EmpName, d.DeptNo, d.DeptName from Emp e cross join Dept d;
+
+select e.EmpName as Employee_Name, m.EmpName as Manager_Name from Emp e left join Emp m on e.Mgr = m.EmpNo
+union
+select e.EmpName as Employee_Name, m.EmpName as Manager_Name from Emp e right join Emp m on e.Mgr = m.EmpNo;
